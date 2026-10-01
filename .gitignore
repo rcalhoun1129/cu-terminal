@@ -1,0 +1,7 @@
+# Restricted athlete-level data — never commit while the repo is public
+reference/
+*.restricted.*
+app/public/data/*.json
+app/data/
+node_modules/
+dist/
