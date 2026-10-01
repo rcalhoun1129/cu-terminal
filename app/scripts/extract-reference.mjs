@@ -13,7 +13,11 @@ const file = process.argv[2] ? path.resolve(process.argv[2]) : REFERENCE_HTML;
 const ref = readReference(file);
 const dqNotes = deriveDqNotes(ref);
 
-const out = { ...ref.data, dqNotes };
+// The live-offer block is keyed by a prospect's name in the source; store it under a neutral key.
+const drive = { ...ref.data.drive };
+const offerKey = Object.keys(drive).find((k) => drive[k] && typeof drive[k] === 'object' && 'bspNil' in drive[k] && 'activation' in drive[k]);
+if (offerKey && offerKey !== 'liveOffer') { drive.liveOffer = drive[offerKey]; delete drive[offerKey]; }
+const out = { ...ref.data, drive, dqNotes };
 const json = JSON.stringify(out);
 for (const dir of [path.resolve(here, '../data'), path.resolve(here, '../public/data')]) {
   fs.mkdirSync(dir, { recursive: true });

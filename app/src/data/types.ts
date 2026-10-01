@@ -63,7 +63,8 @@ export interface Drive {
   architecture: { src: SourceRef; ee: number[]; transfer: number[]; status: string; recs: string[] };
   klass: { src: SourceRef; status: string; stated: number; outline: number; spring: number; placeholder: number; variance: number; reconciled2728: number;
     propJan27: number; propJulDec27: number; propJanJun28: number; above: number; below: number; rows: [string, string, number, number, number, number][] };
-  frampton: { src: SourceRef; status: string; name: string; cls: string; rs: number; bspNil: number; activation: number; max: number; months: MonthMap; note: string };
+  /** Live offer to a prospect (stored under a prospect-specific key in the source; normalised on load). */
+  liveOffer: { src: SourceRef; status: string; name: string; cls: string; rs: number; bspNil: number; activation: number; max: number; months: MonthMap; note: string };
   incentives: { src: SourceRef; pool: number; floor: number; ceiling: number; expectedPct: [number, number]; expected: [number, number]; rows: [string, number, string][]; bookF26: number; note: string };
   buyouts: { src: SourceRef; term: string; rows: [string, string, number | null, string, string][] };
   games: { src: SourceRef; resultSrc: SourceRef; schedule: GameRow[]; method: string;

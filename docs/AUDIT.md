@@ -21,7 +21,7 @@ The React + TypeScript refactor in `app/` must reproduce everything listed here;
 | Model + analytics | `M`, `buildModel()`, `computeAnalytics()` → `M.A` | holdings, committed totals, market statistics, indexes, flows, heat, concentration, maturity, tape, alerts, data quality |
 | Charts | `C` | hand-built SVG/HTML primitives |
 | Shell | `NAV`, `R`, `route()`, `TRACE`, `TABLES`, `ACT` | hash router, sidebar, top bar, ticker, command bar, rail, tables, source-trace drawer, actions |
-| Screens | `R.<name>(...args)` returning HTML, optional `R.<name>_after` binder | 76 screens (82 `R.*` entries including 6 binders) |
+| Screens | `R.<name>(...args)` returning HTML, optional `R.<name>_after` binder | 75 screens (plus `_after` binders and two late overrides of `R.home` / `R.player`) |
 | Persistence | `localStorage['cu-bsm-state']` | `{assume, scenarios, compare}` |
 
 Everything is recomputed by `refresh()` = `buildModel()` → `cmdIndex()` → `route()` whenever a
@@ -41,7 +41,7 @@ market-construction setting, an assumption or the imported book changes.
 | `thirdParty[]` (24) | `pid, src, package, cuBase, paradigma, incentives, conf` | separate ledger, never added to CAPS |
 | `aliases` (279) | normalised name → canonical id | used by name resolution / import |
 | `rosters{2024,2025,2026}` | `{name,pos,cls,school}[]` (112 / 106 / 104) | official cubuffs.com rosters |
-| `drive` | sources, capacity class, tiers, BSM grid, exposure types, shares, Big 12 reference, paid-to-date, master control rows, maturity, windows, utilization, budget, scenarios, stress, architecture, incoming class, Frampton draft, incentives, buyouts, games/EGR, rooms, season scenarios, 2027 schedule, operating calendar | Drive program data; every block carries `src {title,url,key}` |
+| `drive` | sources, capacity class, tiers, BSM grid, exposure types, shares, Big 12 reference, paid-to-date, master control rows, maturity, windows, utilization, budget, scenarios, stress, architecture, incoming class, live-offer draft (`liveOffer`), incentives, buyouts, games/EGR, rooms, season scenarios, 2027 schedule, operating calendar | Drive program data; every block carries `src {title,url,key}` |
 
 ### Episode kinds
 
@@ -252,3 +252,10 @@ underwriting, deal, offer, scenario, what-if, assumptions, settings · file impo
 * Fall-25 spend: hard-coded control vs formula differ by $99.97 (flagged in DQ).
 * FY27-28: book CAPS column exceeds scheduled months by $12,890 hard-coded on 7 rows (flagged).
 * Several Drive figures are stale vs the book (RCMS September spend) and are flagged in DQ.
+
+## 12. Refactor status
+All 75 routes are ported to `app/src/screens` and registered in `app/src/shell/routes.tsx`. Unknown
+routes fall back to home, as in the reference. The two late overrides (home forward strip, player
+"26-27 book record" panel) are folded into those screens. The rendered text of every screen was
+diffed against the original locally. The only differences are the intentional deviations listed
+in [`ARCHITECTURE.md`](ARCHITECTURE.md) §7.

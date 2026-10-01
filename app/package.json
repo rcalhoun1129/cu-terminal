@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "extract": "node scripts/extract-reference.mjs",
-    "sample": "node --experimental-strip-types scripts/write-sample.ts"
+    "extract": "node scripts/extract-reference.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",
