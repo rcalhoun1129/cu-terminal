@@ -52,7 +52,7 @@ export function DatasetBadge() {
 /* ---------------------------------------------------------------- nav */
 export function SideNav({ cur }: { cur: string }) {
   const min = useStore((s) => s.sidebarMin); const base = cur.split('/')[0];
-  const alias = (r: string) => (base === 'pos' && r === 'positions') || (base === 'player' && r === 'securities') || (base === 'room' && r === 'rooms');
+  const alias = (r: string) => (base === 'pos' && r === 'positions') || (base === 'player' && r === 'securities') || (base === 'room' && r === 'rooms') || (base === 'osrecord' && r === 'osroster');
   return <nav id="side" className={min ? 'min' : ''}>{NAV.map(([n, l, subs]) => {
     const on = subs.some(([, r]) => r === cur || r === base || (base === 'tape' && r.startsWith('tape')) || alias(r));
     return <div key={n}><div className={`nh ${on ? 'act' : ''}`} data-go={`#/${subs[0][1]}`}><span className="nn">{n}</span><span className="nl">{l}</span></div>

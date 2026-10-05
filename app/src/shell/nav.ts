@@ -1,6 +1,8 @@
-/** Sidebar navigation — identical sections, labels and routes to the reference app. */
+/** Sidebar navigation — section 00 is the Roster Capital OS; 01–10 are identical to the reference app. */
 export type NavSection = [string, string, [string, string][]];
 export const NAV: NavSection[] = [
+  ['00', 'Roster Capital OS', [['CEO Dashboard', 'os'], ['CEO Scorecard', 'osscorecard'], ['Roster Master', 'osroster'], ['Decision Board', 'osdecisions'], ['Position Inventory', 'ospositions'],
+    ['Capital Books · Scenarios', 'oscapital'], ['Portal Board', 'osportal'], ['2027 Incoming Class', 'osclass'], ['Trigger Log', 'ostriggers'], ['OS Assumptions', 'osassume'], ['Operating Guide', 'osguide']]],
   ['01', 'Command Center', [['Executive Dashboard', 'home'], ['Portfolio Overview', 'portfolio'], ['Daily Capital Brief', 'brief'], ['Market Monitor', 'monitor'], ['Alerts', 'alerts'], ['Tracking Registry', 'tracking']]],
   ['02', 'Markets', [['CU Buy-Side Market Index', 'cubsmi'], ['Position Markets', 'positions'], ['Market Heat Map', 'heat'], ['Price Curves', 'curves'], ['Historical Markets', 'historical'], ['Market Movers', 'movers'], ['Market Comparables', 'comparables'], ['Game Capital · EGR', 'games']]],
   ['03', 'Portfolio', [['Active Roster', 'roster'], ['Position Rooms', 'rooms'], ['Capital Allocation', 'allocation'], ['Portfolio Exposure', 'exposure'], ['Capital Concentration', 'concentration'], ['Roster Construction', 'construction'], ['Roster Changes', 'changes'], ['Room Dispositions', 'dispositions'], ['Incentive Exposure', 'incentives']]],
