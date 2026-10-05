@@ -11,7 +11,8 @@ import { ScreenBoundary } from '../../shell/Shell';
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 const tabs = ['PRICE', 'CAPITAL', 'TENURE', 'CHURN', 'ACQUISITION', 'RETENTION', 'REPLACEMENT'];
 const routes = [...NAV.flatMap((n) => n[2].map((s) => s[1])), ...tabs.map((t) => 'pos/CUQB/' + t), ...tabs.map((t) => 'pos/CUSEC/' + t),
-  'room/QB', 'historical/2025/QB', 'maturity/90', 'tape/BUY/2026', 'dq/VERIFIED', 'underwrite/QB', 'retrep/SN', 'concentration/2025', 'search/a', 'unknown-route'];
+  'room/QB', 'historical/2025/QB', 'maturity/90', 'tape/BUY/2026', 'dq/VERIFIED', 'underwrite/QB', 'retrep/SN', 'concentration/2025', 'search/a', 'unknown-route',
+  'osrecord/S001', 'osrecord/missing', 'osroster/blank', 'osroster/inv1', 'osdecisions/overdue', 'osdecisions/hc', 'ostriggers/S002'];
 
 describe('screens render on sample data', () => {
   beforeAll(() => { store.set({ data: generateSample(), source: 'sample', sourceLabel: 'sample' }); });

@@ -9,6 +9,7 @@ import { Deal, Offer, PosUnderwrite, Replace, RetRep, Underwrite, Walkaway } fro
 import { DryPowder, Forecast, Maturity, Obligations, RForecast, Scenarios, WhatIf } from '../screens/forecast';
 import { CohortRes, Htx, IComps, Methodology, Studies, Yoy } from '../screens/research';
 import { AssumptionsScreen, AuditScreen, Crosswalk, Dq, Names, Recon, SettingsScreen } from '../screens/control';
+import { OsAssumptions, OsCapital, OsClass, OsDashboard, OsDecisions, OsGuide, OsPortal, OsPositions, OsRecord, OsRoster, OsScorecard, OsTriggers } from '../screens/os';
 import { BsmGrid, Budget, Buyouts, Calendar, December, Dispositions, Fvb, Games, Incentives, Pipeline, Plan2728, Sources, Tracking } from '../screens/program';
 
 export type Screen = ComponentType<{ args: string[] }>;
@@ -28,6 +29,8 @@ export const ROUTES: Record<string, Screen> = {
   htx: noArgs(Htx), studies: noArgs(Studies), methodology: noArgs(Methodology), icomps: IComps, yoy: noArgs(Yoy), cohortres: noArgs(CohortRes),
   dq: Dq, recon: noArgs(Recon), crosswalk: noArgs(Crosswalk), names: noArgs(Names), assumptions: noArgs(AssumptionsScreen), settings: noArgs(SettingsScreen), audit: noArgs(AuditScreen),
   calendar: noArgs(Calendar), sources: noArgs(Sources),
+  os: noArgs(OsDashboard), osscorecard: noArgs(OsScorecard), osroster: OsRoster, osrecord: OsRecord, osdecisions: OsDecisions, ospositions: noArgs(OsPositions),
+  oscapital: noArgs(OsCapital), osportal: noArgs(OsPortal), osclass: noArgs(OsClass), ostriggers: OsTriggers, osassume: noArgs(OsAssumptions), osguide: noArgs(OsGuide),
 };
 
 /** Parse a decoded hash path into a known route name (unknown → home) and its arguments. */

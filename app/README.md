@@ -21,6 +21,28 @@ This repository is public. **Real athlete data is never committed.**
 * `npm run build` never copies `*.restricted.*` files into `dist/`. A build therefore contains no
   athlete data.
 
+## Roster Capital OS (nav section 00)
+
+The "Colorado Football Roster Capital CEO Dashboard" workbook runs as a live operating system
+inside the app (`#/os`). The workbook's blue input cells are editable fields and its formula
+cells are computed by `src/os/engine.ts`, so one edit flows to every dashboard, as the workbook's
+cross-sheet formulas did.
+
+* **Load your workbook:** open *Roster Capital OS › CEO Dashboard* and click **Import workbook**.
+  The file is parsed in the browser (SheetJS from cdnjs) and kept in this browser's local storage
+  (`cu-os-book`). It is never uploaded or committed. **Clear local data** removes it.
+* **Operate:** edit Roster Master records (inline or in the record view), move decisions through
+  the Decision Board (Observing → … → Closed), adjust live position inventory, portal targets,
+  scenarios, assumptions and reserves (True OTB calculates once all four reserves are entered),
+  and log trigger events that re-underwrite the master record in the same step. Every change
+  goes into the change log and can be undone.
+* **Export:** **Export .xlsx** writes the live book (inputs and computed values) to a workbook
+  that re-imports without loss.
+* With no workbook loaded the OS runs on a synthetic sample book (`src/os/sample.ts`).
+* `src/os/__tests__/os.test.ts` checks the engine against the real workbook's cached formula
+  values when it is present at `reference/roster-capital-os.xlsx` (gitignored) or
+  `$CU_OS_WORKBOOK`; that block is skipped otherwise.
+
 ## Commands
 
 ```bash
@@ -43,3 +65,4 @@ npm run build && npm run preview
 | UI kit | `src/ui` | Panels, KPIs, tables (sort, CSV), selects, SVG charts |
 | Shell | `src/shell` | Hash router, route registry, nav, top bar + ticker, command bar, rail, tooltips |
 | Screens | `src/screens` | One module per navigation section |
+| Roster Capital OS | `src/os`, `src/screens/os.tsx` | Operating book types, workbook formula engine, workbook import/export, sample book, undoable store |

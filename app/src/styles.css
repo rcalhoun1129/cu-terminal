@@ -175,3 +175,20 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:8px 0}
 .dsbar{display:flex;gap:8px;align-items:center;padding:0 10px;border-left:1px solid var(--line);font-family:var(--mono);font-size:10.5px;white-space:nowrap}
 .dsbar .tag{cursor:pointer}
 .loading{display:grid;place-items:center;height:100vh;font-family:var(--mono);color:var(--text2)}
+/* ---------- roster capital OS */
+.osbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:-2px 0 8px;padding:5px 8px;background:var(--panel);border:1px solid var(--line);border-radius:2px}
+.osbar .iconbtn:disabled{opacity:.4;cursor:default}
+.osin{padding:2px 4px;font-size:11.5px;min-width:0}
+input.osin{border-color:#1f3a5c;color:#8fc3ff} select.osin{border-color:#1f3a5c;color:#8fc3ff}
+.osin:focus{border-color:var(--warn);color:var(--text)}
+.rag{display:inline-block;padding:1px 6px;border-radius:2px;font:600 10px/1.5 var(--mono);letter-spacing:.04em;border:1px solid;white-space:nowrap}
+.rag.GREEN{color:var(--up);border-color:#1f5e37;background:#0d2117} .rag.YELLOW{color:var(--warn);border-color:#6b4b10;background:#241a08}
+.rag.RED{color:var(--down);border-color:#6a2323;background:#260e0e} .rag.GRAY{color:var(--text2);border-color:var(--line2);background:var(--panel2)}
+.osstack{position:relative;display:flex;height:22px;border:1px solid var(--line2);border-radius:2px;overflow:hidden;background:var(--panel2)}
+.osstack i{display:block;height:100%} .osstack u{position:absolute;top:-2px;bottom:-2px;width:0;border-left:1px dashed var(--text)}
+.osloop{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:11px}
+.osloop b{border:1px solid var(--line2);background:var(--panel2);padding:3px 8px;border-radius:2px;font-weight:500} .osloop em{color:var(--warn);font-style:normal;margin-left:6px}
+.oskan{display:grid;grid-template-columns:repeat(7,minmax(170px,1fr));gap:6px;overflow-x:auto;padding-bottom:6px}
+.oskan .bd{max-height:66vh;overflow:auto;display:flex;flex-direction:column;gap:5px}
+.oscard{border:1px solid var(--line2);background:var(--panel2);border-radius:2px;padding:5px 6px} .oscard.od{border-color:#6a2323}
+.iconbtn.xs{padding:0 6px;font-size:11px;line-height:16px;margin-left:2px} .iconbtn.xs:disabled{opacity:.3;cursor:default}
